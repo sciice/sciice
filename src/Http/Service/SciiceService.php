@@ -36,11 +36,11 @@ class SciiceService implements Service
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function resource($id)
+    public function resource(int $id)
     {
         return new SciiceResource($this->sciice->with('roles')->findOrFail($id));
     }
@@ -60,11 +60,11 @@ class SciiceService implements Service
 
     /**
      * @param Request $request
-     * @param         $id
+     * @param int     $id
      *
      * @return $this
      */
-    public function updateAs(Request $request, $id)
+    public function updateAs(Request $request, int $id)
     {
         abort_if($id === 1, 403, __('该账号不允许编辑'));
 
@@ -77,12 +77,12 @@ class SciiceService implements Service
     }
 
     /**
-     * @param  $id
+     * @param int $id
      *
      * @return $this|Service
      * @throws \Exception
      */
-    public function deleteAs($id)
+    public function deleteAs(int $id)
     {
         abort_if($id === 1, 403, __('该账号不允许删除'));
 

@@ -4,6 +4,9 @@ namespace Sciice\Tests;
 
 use Sciice\Facades\Sciice;
 use Sciice\Provider\SciiceServiceProvider;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -13,13 +16,15 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
-        $this->withFactories(__DIR__.'/factories');
+        $this->withFactories(__DIR__ . '/factories');
+        $this->withHeader('X-Requested-With', 'XMLHttpRequest');
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SciiceServiceProvider::class
+            SciiceServiceProvider::class,
+            PermissionServiceProvider::class,
         ];
     }
 
@@ -59,8 +64,25 @@ class TestCase extends \Orchestra\Testbench\TestCase
     {
         $user = factory(\Sciice\Model\Sciice::class)->create();
 
+        $role = Role::create(['name' => 'test', 'title' => 'test', 'guard_name' => 'sciice',]);
+
+        $arrController = ['user', 'role', 'authorize'];
+        $arrAction = ['index', 'store', 'update', 'destroy'];
+        foreach ($arrController as $item) {
+            foreach ($arrAction as $value) {
+                Permission::create([
+                    'name'       => 'sciice.' . $item . '.' . $value,
+                    'title'      => $item . '.' . $value,
+                    'guard_name' => 'sciice',
+                    'grouping'   => 'sciice'
+                ])->assignRole($role);
+            }
+        }
+
+        $user->assignRole($role);
+
         $this->actingAs($user, 'sciice');
 
-        return $this;
+        return $user;
     }
 }

@@ -4,9 +4,9 @@ namespace Sciice\Tests;
 
 use Sciice\Facades\Sciice;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\PermissionServiceProvider;
 use Spatie\Permission\Models\Permission;
 use Sciice\Provider\SciiceServiceProvider;
+use Spatie\Permission\PermissionServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

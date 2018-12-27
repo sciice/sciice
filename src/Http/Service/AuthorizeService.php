@@ -37,11 +37,11 @@ class AuthorizeService implements Service
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function resource($id)
+    public function resource(int $id)
     {
         return new AuthorizeResource($this->authorize->findOrFail($id));
     }
@@ -61,11 +61,11 @@ class AuthorizeService implements Service
 
     /**
      * @param Request $request
-     * @param         $id
+     * @param int     $id
      *
      * @return $this
      */
-    public function updateAs(Request $request, $id)
+    public function updateAs(Request $request, int $id)
     {
         $this->authorize->findOrFail($id)->update($request->all());
 
@@ -73,16 +73,16 @@ class AuthorizeService implements Service
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return $this
      * @throws \Exception
      */
-    public function deleteAs($id)
+    public function deleteAs(int $id)
     {
         $query = $this->authorize->findOrFail($id);
 
-        abort_if($this->authorize->whereParent($query->id)->get()->isNotEmpty(), 403, __('请先删除子权限'));
+        abort_if($this->authorize->whereParent((int) $query->id)->get()->isNotEmpty(), 403, __('请先删除子权限'));
 
         $query->delete();
 

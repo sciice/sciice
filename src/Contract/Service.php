@@ -17,11 +17,11 @@ interface Service
     public function resources();
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function resource($id);
+    public function resource(int $id);
 
     /**
      * @param Request $request
@@ -32,17 +32,17 @@ interface Service
 
     /**
      * @param Request $request
-     * @param         $id
+     * @param int     $id
      *
      * @return $this
      */
-    public function updateAs(Request $request, $id);
+    public function updateAs(Request $request, int $id);
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return $this
      * @throws \Exception
      */
-    public function deleteAs($id);
+    public function deleteAs(int $id);
 }

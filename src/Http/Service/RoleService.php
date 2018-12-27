@@ -36,11 +36,11 @@ class RoleService implements Service
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function resource($id)
+    public function resource(int $id)
     {
         $query = $this->role->findOrFail($id);
         $authorize = $query->permissions()->pluck('id');
@@ -64,11 +64,11 @@ class RoleService implements Service
 
     /**
      * @param Request $request
-     * @param         $id
+     * @param int     $id
      *
      * @return $this
      */
-    public function updateAs(Request $request, $id)
+    public function updateAs(Request $request, int $id)
     {
         $query = $this->role->findOrFail($id);
         $query->update($request->except('authorize'));
@@ -81,12 +81,12 @@ class RoleService implements Service
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return $this
      * @throws \Exception
      */
-    public function deleteAs($id)
+    public function deleteAs(int $id)
     {
         abort_if($id === 1, 403, '该角色组不允许删除');
         $this->role->findOrFail($id)->delete();

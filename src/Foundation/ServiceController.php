@@ -2,6 +2,8 @@
 
 namespace Sciice\Foundation;
 
+use Illuminate\Http\Request;
+
 trait ServiceController
 {
     /**
@@ -13,39 +15,39 @@ trait ServiceController
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function show($id)
+    public function show(int $id)
     {
         return $this->service()->resource($id);
     }
 
     /**
-     * @param $id
+     * @param int $id
      *
      * @return mixed
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         return $this->service()->deleteAs($id)->response();
     }
 
     /**
-     * @param $request
+     * @param Request $request
      *
      * @return mixed
      */
-    abstract public function store($request);
+    abstract public function store(Request $request);
 
     /**
-     * @param     $request
-     * @param     $id
+     * @param Request $request
+     * @param int     $id
      *
      * @return mixed
      */
-    abstract public function update($request, $id);
+    abstract public function update(Request $request, int $id);
 
     /**
      * @return mixed

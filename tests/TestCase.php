@@ -2,10 +2,11 @@
 
 namespace Sciice\Tests;
 
-use Mockery;
 use Sciice\Facades\Sciice;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Sciice\Provider\SciiceServiceProvider;
-use Illuminate\Contracts\Auth\Authenticatable;
+use Spatie\Permission\PermissionServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -16,12 +17,14 @@ class TestCase extends \Orchestra\Testbench\TestCase
         parent::setUp();
         $this->loadMigrationsFrom(__DIR__.'/migrations');
         $this->withFactories(__DIR__.'/factories');
+        $this->withHeader('X-Requested-With', 'XMLHttpRequest');
     }
 
     protected function getPackageProviders($app)
     {
         return [
             SciiceServiceProvider::class,
+            PermissionServiceProvider::class,
         ];
     }
 
@@ -59,11 +62,27 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function authenticate()
     {
-        $this->actingAs($this->authenticatedAs = Mockery::mock(Authenticatable::class), 'sciice');
+        $user = factory(\Sciice\Model\Sciice::class)->create();
 
-        $this->authenticatedAs->shouldReceive('getAuthIdentifier')->andReturn(1);
-        $this->authenticatedAs->shouldReceive('getKey')->andReturn(1);
+        $role = Role::create(['name' => 'test', 'title' => 'test', 'guard_name' => 'sciice']);
 
-        return $this;
+        $arrController = ['user', 'role', 'authorize'];
+        $arrAction = ['index', 'store', 'update', 'destroy'];
+        foreach ($arrController as $item) {
+            foreach ($arrAction as $value) {
+                Permission::create([
+                    'name'       => 'sciice.'.$item.'.'.$value,
+                    'title'      => $item.'.'.$value,
+                    'guard_name' => 'sciice',
+                    'grouping'   => 'sciice',
+                ])->assignRole($role);
+            }
+        }
+
+        $user->assignRole($role);
+
+        $this->actingAs($user, 'sciice');
+
+        return $user;
     }
 }

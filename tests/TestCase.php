@@ -3,10 +3,10 @@
 namespace Sciice\Tests;
 
 use Sciice\Facades\Sciice;
-use Sciice\Provider\SciiceServiceProvider;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionServiceProvider;
+use Spatie\Permission\Models\Permission;
+use Sciice\Provider\SciiceServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

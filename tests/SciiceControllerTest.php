@@ -58,7 +58,6 @@ class SciiceControllerTest extends TestCase
         $this->assertEquals(1, count($res->original));
     }
 
-
     protected function get_data()
     {
         return $this->getJson('/sciice/user');

@@ -4,9 +4,9 @@ namespace Sciice\Http\Service;
 
 use Illuminate\Http\Request;
 use Sciice\Contract\Service;
+use Spatie\Permission\Models\Role;
 use Sciice\Foundation\ServiceResponse;
 use Sciice\Http\Resource\RoleResource;
-use Spatie\Permission\Models\Role;
 
 class RoleService implements Service
 {

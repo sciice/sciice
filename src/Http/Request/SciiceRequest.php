@@ -1,4 +1,5 @@
 <?php
+
 namespace Sciice\Http\Request;
 
 use Illuminate\Validation\Rule;

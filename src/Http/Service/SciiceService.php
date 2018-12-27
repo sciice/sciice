@@ -2,11 +2,11 @@
 
 namespace Sciice\Http\Service;
 
+use Sciice\Model\Sciice;
 use Illuminate\Http\Request;
 use Sciice\Contract\Service;
 use Sciice\Foundation\ServiceResponse;
 use Sciice\Http\Resource\SciiceResource;
-use Sciice\Model\Sciice;
 
 class SciiceService implements Service
 {

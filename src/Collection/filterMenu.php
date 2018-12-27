@@ -10,8 +10,10 @@ Collection::macro('filterMenu', function ($authorize, $field = 'authorize', $chi
             if (isset($item[$field])) {
                 return in_array($item[$field], $authorize, true);
             }
+
             return $item;
         })->toArray();
+
         return $value;
     })->filter(function ($item) use ($children) {
         return count($item[$children]);

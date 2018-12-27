@@ -2,12 +2,12 @@
 
 namespace Sciice\Provider;
 
-use Illuminate\Auth\Middleware\Authenticate;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
 use Sciice\Command\Install;
 use Sciice\Foundation\Sciice;
+use Illuminate\Support\Facades\Route;
 use Sciice\Http\Middleware\Authorize;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Middleware\Authenticate;
 
 class SciiceServiceProvider extends ServiceProvider
 {
@@ -44,65 +44,65 @@ class SciiceServiceProvider extends ServiceProvider
     }
 
     /**
-     * 发布资源
+     * 发布资源.
      */
     private function registerPublishing()
     {
         $this->publishes([
-            __DIR__ . '/../../config/config.php' => config_path('sciice.php'),
+            __DIR__.'/../../config/config.php' => config_path('sciice.php'),
         ], 'sciice-config');
 
         $this->publishes([
-            __DIR__ . '/../../resources/lang' => resource_path('lang/vendor/sciice'),
+            __DIR__.'/../../resources/lang' => resource_path('lang/vendor/sciice'),
         ], 'sciice-lang');
 
         $this->publishes([
-            __DIR__ . '/../../resources/views' => resource_path('views/vendor/sciice'),
+            __DIR__.'/../../resources/views' => resource_path('views/vendor/sciice'),
         ], 'sciice-views');
 
         $this->publishes([
-            __DIR__ . '/../../database/migrations' => database_path('migrations'),
+            __DIR__.'/../../database/migrations' => database_path('migrations'),
         ], 'sciice-migrations');
     }
 
     /**
-     * 注册资源
+     * 注册资源.
      */
     private function registerResources()
     {
-        if (!$this->app->configurationIsCached()) {
-            $this->mergeConfigFrom(__DIR__ . '/../../config/config.php', 'sciice');
+        if (! $this->app->configurationIsCached()) {
+            $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'sciice');
             // 添加一个 guard.
-            Sciice::mergeConfigFrom(__DIR__ . '/../../config/auth.php', 'auth');
+            Sciice::mergeConfigFrom(__DIR__.'/../../config/auth.php', 'auth');
         }
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'sciice');
-        $this->loadTranslationsFrom(__DIR__ . '/../../resources/lang', 'sciice');
+        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'sciice');
+        $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'sciice');
         $this->loadJsonTranslationsFrom(resource_path('lang/vendor/sciice'));
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
 
         $this->registerRouter();
     }
 
     /**
-     * 注册后台菜单配置
+     * 注册后台菜单配置.
      */
     private function registerServiceMenu()
     {
-        Sciice::registerMenu(require __DIR__ . '/../../config/menu.php');
+        Sciice::registerMenu(require __DIR__.'/../../config/menu.php');
     }
 
     /**
-     * 注册路由
+     * 注册路由.
      */
     private function registerRouter()
     {
         Route::group($this->configurationRouter(), function () {
-            $this->loadRoutesFrom(__DIR__ . '/../../router/router.php');
+            $this->loadRoutesFrom(__DIR__.'/../../router/router.php');
         });
     }
 
     /**
-     * 路由配置
+     * 路由配置.
      *
      * @return array
      */
@@ -127,7 +127,7 @@ class SciiceServiceProvider extends ServiceProvider
     }
 
     /**
-     * 注册中间件
+     * 注册中间件.
      */
     private function registerMiddleware()
     {
@@ -136,12 +136,12 @@ class SciiceServiceProvider extends ServiceProvider
     }
 
     /**
-     * 注册命令
+     * 注册命令.
      */
     private function registerConsole()
     {
         $this->commands([
-            Install::class
+            Install::class,
         ]);
     }
 }

@@ -14,21 +14,21 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__ . '/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
         $this->withFactories(__DIR__.'/factories');
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            SciiceServiceProvider::class
+            SciiceServiceProvider::class,
         ];
     }
 
     protected function getPackageAliases($app)
     {
         return [
-            'Sciice' => Sciice::class
+            'Sciice' => Sciice::class,
         ];
     }
 

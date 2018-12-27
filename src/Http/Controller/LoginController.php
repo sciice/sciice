@@ -2,9 +2,9 @@
 
 namespace Sciice\Http\Controller;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
@@ -19,7 +19,7 @@ class LoginController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function validateLogin(Request $request)
     {
@@ -40,12 +40,12 @@ class LoginController extends Controller
             return collect(['username', 'email', 'mobile'])->contains(function ($value) use ($request) {
                 return $this->guard()->attempt([
                     $value     => $request->input($this->username()),
-                    'password' => $request->input('password')
-                ], !blank($request->input('remember')));
+                    'password' => $request->input('password'),
+                ], ! blank($request->input('remember')));
             });
         }
 
-        return $this->guard()->attempt($this->credentials($request), !blank($request->input('remember')));
+        return $this->guard()->attempt($this->credentials($request), ! blank($request->input('remember')));
     }
 
     /**

@@ -18,6 +18,6 @@ Route::middleware(['sciice.auth:sciice', 'authorize:sciice'])->group(function ()
     Route::apiResources([
         'user'      => 'SciiceController',
         'role'      => 'RoleController',
-        'authorize' => 'AuthorizeController'
+        'authorize' => 'AuthorizeController',
     ]);
 });

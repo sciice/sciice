@@ -82,7 +82,7 @@ class AuthorizeService implements Service
     {
         $query = $this->authorize->findOrFail($id);
 
-        abort_if($this->authorize->whereParent($query->id)->get()->isNotEmpty(), 403, __('请先删除子权限'));
+        abort_if($this->authorize->whereParent((int) $query->id)->get()->isNotEmpty(), 403, __('请先删除子权限'));
 
         $query->delete();
 

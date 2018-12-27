@@ -1,0 +1,11 @@
+.DS_Store
+_ide_helper.php
+_ide_helper_models.php
+/vendor
+/.idea
+/api
+/.vscode
+/composer.lock
+/node_modules
+npm-debug.log
+yarn-error.log

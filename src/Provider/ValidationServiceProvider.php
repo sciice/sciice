@@ -1,4 +1,5 @@
 <?php
+
 namespace Sciice\Provider;
 
 use Illuminate\Support\Facades\Validator;

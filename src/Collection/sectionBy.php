@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Collection;
 
-/**
+/*
  * @see https://github.com/spatie/laravel-collection-macros#sectionby
  */
 Collection::macro('sectionBy', function ($key, bool $preserveKeys = false, $sectionKey = 0, $itemsKey = 1): Collection {
@@ -18,5 +18,6 @@ Collection::macro('sectionBy', function ($key, bool $preserveKeys = false, $sect
         }
         $results->last()->get($itemsKey)->offsetSet($preserveKeys ? $key : null, $value);
     }
+
     return $results;
 });

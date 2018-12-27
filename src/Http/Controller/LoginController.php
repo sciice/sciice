@@ -19,13 +19,13 @@ class LoginController extends Controller
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function validateLogin(Request $request)
     {
         $request->validate([
             $this->username() => 'required|string|min:4',
-            'password' => 'required|string|min:5',
+            'password'        => 'required|string|min:5',
         ]);
     }
 
@@ -40,7 +40,7 @@ class LoginController extends Controller
             return collect(['username', 'email', 'mobile'])->contains(function ($value) use ($request) {
                 return $this->guard()->attempt([
                     $value     => $request->input($this->username()),
-                    'password' => $request->input('password')
+                    'password' => $request->input('password'),
                 ], !blank($request->input('remember')));
             });
         }

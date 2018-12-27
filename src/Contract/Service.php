@@ -41,8 +41,9 @@ interface Service
     /**
      * @param $id
      *
-     * @return $this
      * @throws \Exception
+     *
+     * @return $this
      */
     public function deleteAs($id);
 }

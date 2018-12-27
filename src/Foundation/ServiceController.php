@@ -40,8 +40,8 @@ trait ServiceController
     abstract public function store($request);
 
     /**
-     * @param     $request
-     * @param     $id
+     * @param   $request
+     * @param   $id
      *
      * @return mixed
      */

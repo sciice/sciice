@@ -20,8 +20,8 @@ class Sciice extends User
             'width'  => 200,
             'height' => '200',
             'path'   => 'avatar',
-            'rules'  => 'image|mimes:jpeg,jpg,png|max:2000'
-        ]
+            'rules'  => 'image|mimes:jpeg,jpg,png|max:2000',
+        ],
     ];
 
     /**

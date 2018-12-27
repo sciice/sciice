@@ -15,6 +15,7 @@ Collection::macro('validate', function ($callback): bool {
             if (!is_array($validationRule)) {
                 $validationRule = ['default' => $validationRule];
             }
+
             return app('validator')->make($item, $validationRule)->passes();
         };
     }
@@ -23,5 +24,6 @@ Collection::macro('validate', function ($callback): bool {
             return false;
         }
     }
+
     return true;
 });

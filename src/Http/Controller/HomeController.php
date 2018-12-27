@@ -43,8 +43,7 @@ class HomeController extends Controller
         RoleService $roleService,
         AuthorizeService $authorizeService,
         Sciice $sciice
-    )
-    {
+    ) {
         $this->sciiceService = $sciiceService;
         $this->roleService = $roleService;
         $this->authorizeService = $authorizeService;

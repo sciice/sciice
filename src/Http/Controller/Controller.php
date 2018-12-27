@@ -11,7 +11,6 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-
     /**
      * @param string $message
      * @param int    $code

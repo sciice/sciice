@@ -1,4 +1,5 @@
 <?php
+
 namespace Sciice\Http\Request;
 
 use Illuminate\Validation\Rule;
@@ -39,8 +40,9 @@ class SciiceRequest extends Request
     /**
      * @param $validator
      *
-     * @return ValidatorSometime
      * @throws \Illuminate\Validation\ValidationException
+     *
+     * @return ValidatorSometime
      */
     public function updateWithValidator($validator)
     {

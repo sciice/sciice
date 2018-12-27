@@ -21,5 +21,6 @@ Collection::macro('transpose', function (): Collection {
     }, ...array_map(function ($items) {
         return $this->getArrayableItems($items);
     }, array_values($this->items)));
+
     return new static($items);
 });

@@ -48,8 +48,9 @@ class ValidatorSometime
     }
 
     /**
-     * @return $this
      * @throws ValidationException
+     *
+     * @return $this
      */
     public function validate()
     {

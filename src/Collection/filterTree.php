@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Collection;
 
-/**
+/*
  * @param string $field
  * @param string $filter
  * @param string $id

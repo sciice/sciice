@@ -79,8 +79,9 @@ class SciiceService implements Service
     /**
      * @param  $id
      *
-     * @return $this|Service
      * @throws \Exception
+     *
+     * @return $this|Service
      */
     public function deleteAs($id)
     {

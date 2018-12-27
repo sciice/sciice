@@ -1,9 +1,10 @@
 <?php
+
 namespace Sciice\Provider;
 
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\ServiceProvider;
 use Sciice\Rule\Mobile;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class ValidationServiceProvider extends ServiceProvider
 {

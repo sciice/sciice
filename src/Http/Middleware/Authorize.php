@@ -27,7 +27,7 @@ class Authorize
         $name = Route::currentRouteName();
 
         if (array_get($this->abilities, $method)) {
-            $name = str_before($name, $method) . array_get($this->abilities, $method);
+            $name = str_before($name, $method).array_get($this->abilities, $method);
         }
 
         if (auth($guard)->user()->can($name)) {

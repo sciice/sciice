@@ -25,7 +25,7 @@ class RoleRequest extends Request
     {
         return [
             'name'  => ['required', 'string', Rule::unique('roles')->ignore($this->route('role'))],
-            'title' => 'required|string'
+            'title' => 'required|string',
         ];
     }
 }

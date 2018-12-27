@@ -2,9 +2,9 @@
 
 namespace Sciice\Http\Controller;
 
-use Sciice\Foundation\ServiceController;
 use Sciice\Http\Request\SciiceRequest;
 use Sciice\Http\Service\SciiceService;
+use Sciice\Foundation\ServiceController;
 
 class SciiceController extends Controller
 {

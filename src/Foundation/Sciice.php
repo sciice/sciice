@@ -27,7 +27,7 @@ class Sciice
     public static $component = [];
 
     /**
-     * 注册脚本资源
+     * 注册脚本资源.
      *
      * @param $name
      * @param $path
@@ -42,7 +42,7 @@ class Sciice
     }
 
     /**
-     * 注册模块资源
+     * 注册模块资源.
      *
      * @param $name
      * @param $path
@@ -57,7 +57,7 @@ class Sciice
     }
 
     /**
-     * 注册样式资源
+     * 注册样式资源.
      *
      * @param $name
      * @param $path
@@ -72,7 +72,7 @@ class Sciice
     }
 
     /**
-     * 注册菜单数据
+     * 注册菜单数据.
      *
      * @param array $menu
      *
@@ -86,40 +86,40 @@ class Sciice
     }
 
     /**
-     * 获取脚本资源
+     * 获取脚本资源.
      *
      * @return array
      */
     public static function script()
     {
-        return array_merge(static::$script, ['component' => __DIR__ . '/../../dist/index.js']);
+        return array_merge(static::$script, ['component' => __DIR__.'/../../dist/index.js']);
     }
 
     /**
-     * 获取样式资源
+     * 获取样式资源.
      *
      * @return array
      */
     public static function style()
     {
         return array_merge(static::$style, [
-            'component' => __DIR__ . '/../../dist/index.css',
-            'umi'       => __DIR__ . '/../../api/dist/umi.css'
+            'component' => __DIR__.'/../../dist/index.css',
+            'umi'       => __DIR__.'/../../api/dist/umi.css',
         ]);
     }
 
     /**
-     * 获取模块资源
+     * 获取模块资源.
      *
      * @return array
      */
     public static function component()
     {
-        return array_merge(static::$component, ['umi' => __DIR__ . '/../../api/dist/umi.js']);
+        return array_merge(static::$component, ['umi' => __DIR__.'/../../api/dist/umi.js']);
     }
 
     /**
-     * 获取菜单数据
+     * 获取菜单数据.
      *
      * @return \Illuminate\Support\Collection
      */
@@ -129,7 +129,7 @@ class Sciice
     }
 
     /**
-     * 合并配置项
+     * 合并配置项.
      *
      * @param $path
      * @param $key
@@ -149,7 +149,7 @@ class Sciice
      */
     public static function __callStatic($method, $parameters)
     {
-        if (!property_exists(get_called_class(), $method)) {
+        if (! property_exists(get_called_class(), $method)) {
             throw new BadMethodCallException("Method {$method} does not exist.");
         }
 

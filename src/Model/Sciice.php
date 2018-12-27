@@ -2,11 +2,11 @@
 
 namespace Sciice\Model;
 
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Hash;
 use QCod\ImageUp\HasImageUploads;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 
 class Sciice extends User
 {
@@ -20,8 +20,8 @@ class Sciice extends User
             'width'  => 200,
             'height' => '200',
             'path'   => 'avatar',
-            'rules'  => 'image|mimes:jpeg,jpg,png|max:2000'
-        ]
+            'rules'  => 'image|mimes:jpeg,jpg,png|max:2000',
+        ],
     ];
 
     /**

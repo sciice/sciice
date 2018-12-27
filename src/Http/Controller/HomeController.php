@@ -4,9 +4,9 @@ namespace Sciice\Http\Controller;
 
 use Illuminate\Http\Request;
 use Sciice\Foundation\Sciice;
-use Sciice\Http\Service\AuthorizeService;
 use Sciice\Http\Service\RoleService;
 use Sciice\Http\Service\SciiceService;
+use Sciice\Http\Service\AuthorizeService;
 
 class HomeController extends Controller
 {
@@ -43,8 +43,7 @@ class HomeController extends Controller
         RoleService $roleService,
         AuthorizeService $authorizeService,
         Sciice $sciice
-    )
-    {
+    ) {
         $this->sciiceService = $sciiceService;
         $this->roleService = $roleService;
         $this->authorizeService = $authorizeService;

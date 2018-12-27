@@ -12,7 +12,7 @@ class LoginTest extends TestCase
 
         $list = $this->json('POST', '/sciice/login', [
             'username' => 'test',
-            'password' => '12345'
+            'password' => '12345',
         ]);
 
         $list->assertOk();
@@ -23,7 +23,7 @@ class LoginTest extends TestCase
         factory(Sciice::class)->create();
         $list = $this->json('POST', '/sciice/login', [
             'username' => 'test',
-            'password' => '123'
+            'password' => '123',
         ]);
 
         $list->assertStatus(422);

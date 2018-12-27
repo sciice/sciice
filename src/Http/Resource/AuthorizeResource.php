@@ -27,8 +27,8 @@ class AuthorizeResource extends JsonResource
             'action'     => last($arr),
             'title'      => $this->title,
             'grouping'   => $this->grouping,
-            'created_at' => (string)$this->created_at,
-            'updated_at' => (string)$this->updated_at,
+            'created_at' => (string) $this->created_at,
+            'updated_at' => (string) $this->updated_at,
         ];
     }
 }

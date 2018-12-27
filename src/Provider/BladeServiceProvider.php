@@ -10,7 +10,7 @@ class BladeServiceProvider extends ServiceProvider
     public function boot()
     {
         Blade::directive('resource', function ($action) {
-            return "<?php foreach(Sciice::{$action}() as \$name => \$path): ;?>" . $this->if($action) . $this->else($action) . $this->endIf() . "<?php endforeach; ?>";
+            return "<?php foreach(Sciice::{$action}() as \$name => \$path): ;?>".$this->if($action).$this->else($action).$this->endIf().'<?php endforeach; ?>';
         });
     }
 
@@ -40,6 +40,6 @@ class BladeServiceProvider extends ServiceProvider
 
     private function endIf()
     {
-        return "<?php endif; ?>";
+        return '<?php endif; ?>';
     }
 }

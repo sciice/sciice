@@ -5,6 +5,7 @@ use Illuminate\Support\Carbon;
 
 $factory->define(\Sciice\Model\Sciice::class, function (Faker $faker) {
     $now = Carbon::now();
+
     return [
         'name'       => $faker->name,
         'username'   => 'test',

@@ -27,7 +27,7 @@ class Install extends Command
 
         $this->callSilent('vendor:publish', [
             '--tag'   => 'sciice-config',
-            '--force' => true
+            '--force' => true,
         ]);
 
         $this->info('Sciice installed successfully.');

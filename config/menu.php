@@ -18,7 +18,7 @@ return [
             [
                 'name' => '个人中心',
                 'path' => 'user',
-            ]
+            ],
         ],
     ],
     [
@@ -41,7 +41,7 @@ return [
                 'name'      => '权限管理',
                 'path'      => 'authorize',
                 'authorize' => 'sciice.authorize.index',
-            ]
-        ]
+            ],
+        ],
     ],
 ];

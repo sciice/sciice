@@ -31,7 +31,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Sciice' => Sciice::class
+            'Sciice' => Sciice::class,
         ];
     }
 

@@ -19,7 +19,7 @@ class Mobile implements Rule
         if (strlen($value) !== 11) {
             return false;
         }
-        if (!is_numeric($value)) {
+        if (! is_numeric($value)) {
             return false;
         }
         // 中国移动

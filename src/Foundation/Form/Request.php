@@ -2,8 +2,8 @@
 
 namespace Sciice\Foundation\Form;
 
-use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 
 class Request extends FormRequest
 {
@@ -39,7 +39,7 @@ class Request extends FormRequest
             $this->withValidator($validator);
         }
 
-        if (!$this->isMethod('POST') && method_exists($this, 'updateWithValidator')) {
+        if (! $this->isMethod('POST') && method_exists($this, 'updateWithValidator')) {
             $this->updateWithValidator($validator);
         }
 

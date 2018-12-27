@@ -7,6 +7,7 @@ Collection::macro('formatMenu', function ($children = 'children') {
         $list['path'] = str_start($list['path'], '/');
         $list[$children] = collect($list[$children])->map(function ($item) use ($list) {
             $item['path'] = str_start("{$list['path']}/{$item['path']}", '/');
+
             return $item;
         })->toArray();
 

@@ -2,9 +2,9 @@
 
 namespace Sciice\Http\Controller;
 
-use Sciice\Foundation\ServiceController;
 use Sciice\Http\Request\RoleRequest;
 use Sciice\Http\Service\RoleService;
+use Sciice\Foundation\ServiceController;
 
 class RoleController extends Controller
 {

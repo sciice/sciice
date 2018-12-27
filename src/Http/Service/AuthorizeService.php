@@ -4,10 +4,10 @@ namespace Sciice\Http\Service;
 
 use Illuminate\Http\Request;
 use Sciice\Contract\Service;
-use Sciice\Foundation\ServiceResponse;
-use Sciice\Http\Resource\AuthorizeResource;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Sciice\Foundation\ServiceResponse;
+use Spatie\Permission\Models\Permission;
+use Sciice\Http\Resource\AuthorizeResource;
 
 class AuthorizeService implements Service
 {

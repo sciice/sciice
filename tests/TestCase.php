@@ -2,10 +2,8 @@
 
 namespace Sciice\Tests;
 
-use Mockery;
 use Sciice\Facades\Sciice;
 use Sciice\Provider\SciiceServiceProvider;
-use Illuminate\Contracts\Auth\Authenticatable;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -59,10 +57,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function authenticate()
     {
-        $this->actingAs($this->authenticatedAs = Mockery::mock(Authenticatable::class), 'sciice');
+        $user = factory(\Sciice\Model\Sciice::class)->create();
 
-        $this->authenticatedAs->shouldReceive('getAuthIdentifier')->andReturn(1);
-        $this->authenticatedAs->shouldReceive('getKey')->andReturn(1);
+        $this->actingAs($user, 'sciice');
 
         return $this;
     }

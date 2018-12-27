@@ -77,7 +77,7 @@ class SciiceControllerTest extends TestCase
             'email'    => 'post_test@i.com',
             'mobile'   => 13000033333,
             'password' => '123456',
-            'role'     => 1
+            'role'     => 1,
         ];
     }
 }

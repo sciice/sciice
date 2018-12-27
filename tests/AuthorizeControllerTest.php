@@ -76,7 +76,7 @@ class AuthorizeControllerTest extends TestCase
             'name'     => $name,
             'title'    => 'test_authorize_title',
             'grouping' => 'sciice',
-            'parent'   => $parent
+            'parent'   => $parent,
         ];
     }
 }

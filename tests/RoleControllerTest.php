@@ -66,7 +66,7 @@ class RoleControllerTest extends TestCase
         return [
             'name'       => $name,
             'title'      => 'test_role_title',
-            'guard_name' => 'sciice'
+            'guard_name' => 'sciice',
         ];
     }
 }

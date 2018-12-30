@@ -104,7 +104,7 @@ class Sciice
     {
         return array_merge(static::$style, [
             'component' => __DIR__.'/../../dist/index.css',
-            'umi'       => __DIR__.'/../../api/dist/umi.css',
+            'umi'       => __DIR__.'/../../dist/umi.css',
         ]);
     }
 
@@ -115,7 +115,7 @@ class Sciice
      */
     public static function component()
     {
-        return array_merge(static::$component, ['umi' => __DIR__.'/../../api/dist/umi.js']);
+        return array_merge(static::$component, ['umi' => __DIR__.'/../../dist/umi.js']);
     }
 
     /**

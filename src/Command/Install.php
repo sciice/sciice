@@ -41,8 +41,8 @@ class Install extends Command
     protected function registerSciiceServiceProvider()
     {
         file_put_contents(config_path('app.php'), str_replace(
-            "App\\Providers\EventServiceProvider::class,".PHP_EOL,
-            "App\\Providers\EventServiceProvider::class,".PHP_EOL."        Sciice\Provider\SciiceServiceProvider::class,".PHP_EOL,
+            "App\Providers\EventServiceProvider::class,".PHP_EOL,
+            "App\Providers\EventServiceProvider::class,".PHP_EOL."        Sciice\Provider\SciiceServiceProvider::class,".PHP_EOL,
             file_get_contents(config_path('app.php'))
         ));
     }
